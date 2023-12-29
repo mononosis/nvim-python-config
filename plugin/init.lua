@@ -10,6 +10,16 @@ require 'lspconfig'.pyright.setup {
   }
 }
 
+require 'lspsaga'.setup {
+  settings = {
+    python = {
+      analysis = {
+        typeCheckingMode = "basic" -- Adjust as needed ("off", "basic", "strict")
+      }
+    }
+  }
+}
+
 require('formatter').setup({
   filetype = {
     python = {
@@ -33,7 +43,7 @@ null_ls.setup({
   sources = {
     null_ls.builtins.diagnostics.flake8.with({
       -- Specify `flake8` options here
-      extra_args = { "--max-line-length=100", "--ignore=E203,W503" },
+      extra_args = { "--max-line-length=10", "--ignore=E501,E203,W503" },
     }),
   },
 })
