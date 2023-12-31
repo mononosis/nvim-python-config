@@ -1,6 +1,13 @@
 vim.cmd('color happy_hacking')
 
-require 'lspconfig'.pyright.setup {
+local lspconfig = require('lspconfig')
+
+local function on_attach(_, buffer)
+  vim.api.nvim_buf_set_keymap(buffer, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>',
+    { noremap = true, silent = true })
+end
+lspconfig.pyright.setup {
+  on_attach = on_attach,
   settings = {
     python = {
       analysis = {
@@ -10,15 +17,15 @@ require 'lspconfig'.pyright.setup {
   }
 }
 
-require 'lspsaga'.setup {
-  settings = {
-    python = {
-      analysis = {
-        typeCheckingMode = "basic" -- Adjust as needed ("off", "basic", "strict")
-      }
-    }
-  }
-}
+--require 'lspsaga'.setup {
+--settings = {
+--python = {
+--analysis = {
+--typeCheckingMode = "basic" -- Adjust as needed ("off", "basic", "strict")
+--}
+--}
+--}
+--}
 
 require('formatter').setup({
   filetype = {
