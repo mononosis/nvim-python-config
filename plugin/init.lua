@@ -1,4 +1,3 @@
-vim.cmd('color gruvbox')
 
 local lspconfig = require('lspconfig')
 
@@ -141,3 +140,5 @@ require("nvim-dap-virtual-text").setup {
 }
 require("dapui").setup()
 vim.cmd[[hi Normal guibg=NONE ctermbg=NONE]]
+
+vim.cmd('color gruvbox')
