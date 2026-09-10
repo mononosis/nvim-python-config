@@ -1,4 +1,4 @@
-vim.cmd('color cyberpunk')
+vim.cmd('color gruvbox')
 
 local lspconfig = require('lspconfig')
 
